@@ -96,8 +96,14 @@ describe('list', () => {
         symbol: expect.any(String),
         symbolKey: expect.any(String),
         tradeable: true
+      },
+      // NOTE(canonbrother): waitForIndexHeight is needed in ocean-js
+      activePrice: {
+        active: null,
+        next: null,
+        isLive: false,
+        block: expect.any(Object)
       }
-      // activePrice: undefined
     })
 
     expect(result.data[1].tokenId.length).toStrictEqual(64)
@@ -167,8 +173,14 @@ describe('get', () => {
         symbol: 'AAPL',
         symbolKey: 'AAPL',
         tradeable: true
+      },
+      // NOTE(canonbrother): waitForIndexHeight is needed in ocean-js
+      activePrice: {
+        active: null,
+        next: null,
+        isLive: false,
+        block: expect.any(Object)
       }
-      // activePrice: undefined
     })
   })
 
