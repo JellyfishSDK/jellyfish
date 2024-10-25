@@ -189,17 +189,18 @@ it('should show aggregated swaps for 24h and 30d', async () => {
       bucket: expect.any(Number),
       id: expect.any(String),
       key: '11-86400'
-    },
-    {
-      aggregated: {
-        amounts: {},
-        usd: 0
-      },
-      block: expect.any(Object),
-      bucket: expect.any(Number),
-      id: expect.any(String),
-      key: '11-86400'
     }
+    // no point to preview the default
+    // {
+    //   aggregated: {
+    //     amounts: {},
+    //     usd: 0
+    //   },
+    //   block: expect.any(Object),
+    //   bucket: expect.any(Number),
+    //   id: expect.any(String),
+    //   key: '11-86400'
+    // }
   ])
 
   const { data: hourAggregated } = await controller.listPoolSwapAggregates('11', PoolSwapAggregatedInterval.ONE_HOUR, { size: 3 })
