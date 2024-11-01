@@ -214,3 +214,43 @@ it('should get oracles by owner address', async () => {
     expect(toCompare).toStrictEqual(oracle)
   }
 })
+
+it('test UpdateOracle and RemoveOracle', async () => {
+  const { data: oraclesBefore } = await controller.list()
+
+  const before = oraclesBefore[0]
+  const oracleId = before.id
+  const address = before.ownerAddress
+
+  {
+    await client.oracle.updateOracle(oracleId, address, {
+      priceFeeds: [
+        { token: 'TD', currency: 'USD' }
+      ],
+      weightage: 3
+    })
+    await container.generate(1)
+    const height = await app.getBlockCount()
+    await container.generate(1)
+    await app.waitForBlockHeight(height)
+  }
+
+  const { data: oracles } = await controller.list()
+  const after = oracles.find((oracle) => oracle.id === oracleId)
+  expect(after?.id).toStrictEqual(before.id)
+  expect(after?.priceFeeds).toStrictEqual([{ token: 'TD', currency: 'USD' }])
+  expect(after?.weightage).toStrictEqual(3)
+
+  {
+    await client.oracle.removeOracle(oracleId)
+    await container.generate(1)
+    const height = await app.getBlockCount()
+    await container.generate(1)
+    await app.waitForBlockHeight(height)
+  }
+
+  const { data: oraclesFinal } = await controller.list()
+  expect(oraclesFinal.length).toStrictEqual(oraclesBefore.length - 1)
+  const removed = oraclesFinal.find((oracle) => oracle.id === oracleId)
+  expect(removed).toBeUndefined()
+})
