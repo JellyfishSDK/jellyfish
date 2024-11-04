@@ -140,7 +140,7 @@ it('should list', async () => {
       sort: expect.any(String),
       aggregated: {
         // amount: '2.30000000',
-        amount: expect.any(Number), // 2.33333333
+        amount: expect.any(String), // 2.33333333
         weightage: 3,
         oracles: {
           active: 2,
@@ -165,7 +165,7 @@ it('should get ticker', async () => {
       },
       aggregated: {
         // amount: '1.30000000',
-        amount: expect.any(Number), // 1.33333333
+        amount: expect.any(String), // 1.33333333
         weightage: 3,
         oracles: {
           active: 2,
