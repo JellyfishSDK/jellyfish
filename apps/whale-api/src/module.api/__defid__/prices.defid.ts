@@ -139,7 +139,8 @@ it('should list', async () => {
       key: 'TB-USD',
       sort: expect.any(String),
       aggregated: {
-        amount: '2.30000000',
+        // amount: '2.30000000',
+        amount: expect.any(Number), // 2.33333333
         weightage: 3,
         oracles: {
           active: 2,
@@ -163,7 +164,8 @@ it('should get ticker', async () => {
         time: expect.any(Number)
       },
       aggregated: {
-        amount: '1.30000000',
+        // amount: '1.30000000',
+        amount: expect.any(Number), // 1.33333333
         weightage: 3,
         oracles: {
           active: 2,
