@@ -223,6 +223,5 @@ it('should get oracles', async () => {
   })
 })
 
-// NOTE(canonbrother):
-// `getFeedActive` and `getFeedWithInterval` are skipped on origin test suite due to flaky
+// NOTE(canonbrother): `getFeedWithInterval` are skipped on origin test suite due to flaky
 // to do while needed

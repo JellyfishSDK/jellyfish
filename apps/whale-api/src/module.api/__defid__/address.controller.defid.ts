@@ -347,7 +347,6 @@ describe('getAccountHistory', () => {
       try {
         await controller.getAccountHistory(addr, -1, 1)
       } catch (err: any) {
-        console.log('err1: ', err)
         expect(err.error).toStrictEqual({
           at: expect.any(Number),
           code: 400,
