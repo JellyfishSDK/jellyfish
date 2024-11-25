@@ -19,7 +19,7 @@ afterAll(async () => {
 
 it('test whitelisted getblockcount rpc call', async () => {
   const res = await controller.post({ method: 'getblockcount', params: [] })
-  expect(res.data).toStrictEqual(101)
+  expect(res.result).toStrictEqual(101)
 })
 
 it('test **NOT** whitelisted listpoolpairs rpc call', async () => {
