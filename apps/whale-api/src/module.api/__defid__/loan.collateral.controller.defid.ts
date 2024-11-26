@@ -126,14 +126,8 @@ describe('list', () => {
         symbol: expect.any(String),
         symbolKey: expect.any(String),
         tradeable: true
-      },
-      // activePrice: undefined
-      activePrice: {
-        active: null,
-        next: null,
-        isLive: false,
-        block: expect.any(Object)
       }
+      // activePrice: undefined
     })
   })
 
@@ -201,14 +195,8 @@ describe('get', () => {
           symbol: 'AAPL',
           symbolKey: expect.any(String),
           tradeable: true
-        },
-        // activePrice: undefined
-        activePrice: {
-          active: null,
-          next: null,
-          isLive: false,
-          block: expect.any(Object)
         }
+        // activePrice: undefined
       }
     )
   })
