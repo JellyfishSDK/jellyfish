@@ -23,19 +23,26 @@ const setups: Record<string, OracleSetup> = {
       { token: 'TA', currency: 'USD' },
       { token: 'TB', currency: 'USD' },
       { token: 'TC', currency: 'USD' },
-      { token: 'TD', currency: 'USD' }
+      { token: 'TD', currency: 'USD' },
+      { token: 'TE', currency: 'USD' },
+      { token: 'TF', currency: 'USD' }
     ],
     prices: [
       [
         { tokenAmount: '1.1@TA', currency: 'USD' },
         { tokenAmount: '2.1@TB', currency: 'USD' },
         { tokenAmount: '3.1@TC', currency: 'USD' },
-        { tokenAmount: '4.1@TD', currency: 'USD' }
+        { tokenAmount: '4.1@TD', currency: 'USD' },
+        { tokenAmount: '5.1@TE', currency: 'USD' },
+        { tokenAmount: '6.1@TF', currency: 'USD' }
       ],
       [
         { tokenAmount: '1@TA', currency: 'USD' },
         { tokenAmount: '2@TB', currency: 'USD' },
-        { tokenAmount: '3@TC', currency: 'USD' }
+        { tokenAmount: '3@TC', currency: 'USD' },
+        { tokenAmount: '4@TD', currency: 'USD' },
+        { tokenAmount: '5@TE', currency: 'USD' },
+        { tokenAmount: '6@TF', currency: 'USD' }
       ],
       [
         { tokenAmount: '0.9@TA', currency: 'USD' },
@@ -50,18 +57,21 @@ const setups: Record<string, OracleSetup> = {
     feed: [
       { token: 'TA', currency: 'USD' },
       { token: 'TB', currency: 'USD' },
-      { token: 'TD', currency: 'USD' }
+      { token: 'TD', currency: 'USD' },
+      { token: 'TG', currency: 'USD' }
     ],
     prices: [
       [
         { tokenAmount: '1.5@TA', currency: 'USD' },
         { tokenAmount: '2.5@TB', currency: 'USD' },
-        { tokenAmount: '4.5@TD', currency: 'USD' }
+        { tokenAmount: '4.5@TD', currency: 'USD' },
+        { tokenAmount: '6.5@TG', currency: 'USD' }
       ],
       [
         { tokenAmount: '1.5@TA', currency: 'USD' },
         { tokenAmount: '2.5@TB', currency: 'USD' },
-        { tokenAmount: '4.5@TD', currency: 'USD' }
+        { tokenAmount: '4.5@TD', currency: 'USD' },
+        { tokenAmount: '6.5@TG', currency: 'USD' }
       ]
     ]
   },
@@ -72,13 +82,15 @@ const setups: Record<string, OracleSetup> = {
     feed: [
       { token: 'TA', currency: 'USD' },
       { token: 'TB', currency: 'USD' },
-      { token: 'TC', currency: 'USD' }
+      { token: 'TC', currency: 'USD' },
+      { token: 'TH', currency: 'USD' }
     ],
     prices: [
       [
         { tokenAmount: '1.25@TA', currency: 'USD' },
         { tokenAmount: '2.25@TB', currency: 'USD' },
-        { tokenAmount: '4.25@TC', currency: 'USD' }
+        { tokenAmount: '4.25@TC', currency: 'USD' },
+        { tokenAmount: '8.25@TH', currency: 'USD' }
       ]
     ]
   }
@@ -122,7 +134,7 @@ afterAll(async () => {
 
 it('should list', async () => {
   const { data: prices } = await controller.list()
-  expect(prices.length).toStrictEqual(4)
+  expect(prices.length).toStrictEqual(7)
   expect(prices[0]).toStrictEqual({
     id: 'TB-USD',
     sort: '000000030000006eTB-USD',
@@ -139,8 +151,7 @@ it('should list', async () => {
       key: 'TB-USD',
       sort: expect.any(String),
       aggregated: {
-        // amount: '2.30000000',
-        amount: expect.any(String), // 2.33333333
+        amount: expect.any(String),
         weightage: 3,
         oracles: {
           active: 2,
@@ -149,6 +160,21 @@ it('should list', async () => {
       }
     }
   })
+
+  // check order
+  const expectOrders = [
+    'TB-USD',
+    'TA-USD',
+    'TC-USD',
+    'TD-USD',
+    'TG-USD',
+    'TF-USD',
+    'TE-USD'
+  ]
+  const ids = prices.map(p => p.id)
+  for (let i = 0; i < ids.length; i += 1) {
+    expect(ids[i]).toStrictEqual(expectOrders[i])
+  }
 })
 
 it('should get ticker', async () => {
