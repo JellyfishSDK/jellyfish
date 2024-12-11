@@ -21,6 +21,7 @@
     "compile": "hardhat compile",
     "test": "jest --maxWorkers=100%",
     "sanity": "jest --maxWorkers=100% --config=jest.sanity.js",
+    "defid": "jest --maxWorkers=100% --maxParallel=4 --config=jest.defid.js",
     "ci:test": "jest --ci --coverage --forceExit --maxWorkers=4",
     "all:clean": "rm -rf ./packages/**/dist && rm -rf ./apps/dist && rm -rf ./packages/**/tsconfig.build.tsbuildinfo",
     "all:build": "lerna run build",

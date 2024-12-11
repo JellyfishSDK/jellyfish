@@ -13,7 +13,8 @@ module.exports = {
   clearMocks: true,
   testTimeout: 300000,
   testPathIgnorePatterns: [
-    '__sanity__'
+    '__sanity__',
+    '__defid__'
   ],
   coveragePathIgnorePatterns: [
     '/node_modules/',

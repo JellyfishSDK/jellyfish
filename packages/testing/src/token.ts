@@ -74,7 +74,7 @@ export interface MintTokensOptions {
   mintAmount?: number
 }
 
-interface CreateTokenOptions {
+export interface CreateTokenOptions {
   name?: string
   isDAT?: boolean
   mintable?: boolean

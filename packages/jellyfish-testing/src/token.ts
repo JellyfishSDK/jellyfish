@@ -56,7 +56,7 @@ export class TestingToken {
   }
 }
 
-interface TestingTokenCreate {
+export interface TestingTokenCreate {
   symbol: string
   name?: string
   isDAT?: boolean
@@ -65,23 +65,23 @@ interface TestingTokenCreate {
   collateralAddress?: string
 }
 
-interface TestingTokenDFI {
+export interface TestingTokenDFI {
   address?: string
   amount: number | string
 }
 
-interface TestingTokenMint {
+export interface TestingTokenMint {
   amount: number | string
   symbol: string
 }
 
-interface TestingTokenSend {
+export interface TestingTokenSend {
   address: string
   amount: number | string
   symbol: string
 }
 
-interface TestingTokenBurn {
+export interface TestingTokenBurn {
   amount: number | string
   symbol: string
   from: string

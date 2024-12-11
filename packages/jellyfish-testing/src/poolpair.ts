@@ -43,7 +43,7 @@ export class TestingPoolPair {
   }
 }
 
-interface TestingPoolPairCreate {
+export interface TestingPoolPairCreate {
   tokenA: string
   tokenB: string
   commission?: number
@@ -53,7 +53,7 @@ interface TestingPoolPairCreate {
   pairSymbol?: string
 }
 
-interface TestingPoolPairAdd {
+export interface TestingPoolPairAdd {
   a: {
     symbol: string
     amount: number | string
@@ -65,7 +65,7 @@ interface TestingPoolPairAdd {
   address?: string
 }
 
-interface TestingPoolPairRemove {
+export interface TestingPoolPairRemove {
   address: string
   symbol: string
   amount: number | string
