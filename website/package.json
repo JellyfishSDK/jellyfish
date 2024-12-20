@@ -24,7 +24,7 @@
     "@docusaurus/module-type-aliases": "2.4.1",
     "@docusaurus/types": "2.4.1",
     "@tsconfig/docusaurus": "1.0.7",
-    "@types/react": "18.0.33",
+    "@types/react": "18.3.18",
     "@types/react-helmet": "6.1.6",
     "@types/react-router-dom": "5.3.3"
   },
