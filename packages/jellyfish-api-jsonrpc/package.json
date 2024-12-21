@@ -16,7 +16,7 @@
   "dependencies": {
     "@defichain/jellyfish-api-core": "^0.0.0",
     "abort-controller": "^3.0.0",
-    "cross-fetch": "^3.1.5"
+    "cross-fetch": "^3.2.0"
   },
   "peerDependencies": {
     "defichain": "^0.0.0"

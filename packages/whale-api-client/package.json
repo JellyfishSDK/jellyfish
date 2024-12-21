@@ -17,7 +17,7 @@
     "@defichain/jellyfish-api-core": "^0.0.0",
     "@defichain/jellyfish-api-jsonrpc": "^0.0.0",
     "abort-controller": "^3.0.0",
-    "cross-fetch": "^3.1.5",
+    "cross-fetch": "^3.2.0",
     "url-search-params-polyfill": "8.1.1"
   },
   "peerDependencies": {
