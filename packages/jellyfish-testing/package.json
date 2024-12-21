@@ -18,7 +18,7 @@
     "@defichain/jellyfish-network": "^0.0.0",
     "@defichain/jellyfish-crypto": "^0.0.0",
     "@defichain/testcontainers": "^0.0.0",
-    "cross-fetch": "^3.1.5"
+    "cross-fetch": "^3.2.0"
   },
   "peerDependencies": {
     "defichain": "^0.0.0"
